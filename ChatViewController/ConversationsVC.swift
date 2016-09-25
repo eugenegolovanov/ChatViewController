@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ConversationsVC.swift
 //  ChatViewController
 //
 //  Created by eugene golovanov on 9/24/16.
@@ -8,18 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ConversationsVC: UIViewController {
 
+    @IBOutlet weak var buttonConversations: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func onConversation(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "chatSegue", sender: self)
     }
-
 
 }
 

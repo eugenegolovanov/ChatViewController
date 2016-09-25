@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		44F6453D1D97A7BC00EF95E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F6453C1D97A7BC00EF95E3 /* AppDelegate.swift */; };
-		44F6453F1D97A7BC00EF95E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F6453E1D97A7BC00EF95E3 /* ViewController.swift */; };
+		44F6453F1D97A7BC00EF95E3 /* ConversationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F6453E1D97A7BC00EF95E3 /* ConversationsVC.swift */; };
 		44F645421D97A7BC00EF95E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44F645401D97A7BC00EF95E3 /* Main.storyboard */; };
 		44F645441D97A7BC00EF95E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44F645431D97A7BC00EF95E3 /* Assets.xcassets */; };
 		44F645471D97A7BC00EF95E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44F645451D97A7BC00EF95E3 /* LaunchScreen.storyboard */; };
+		44F6454F1D97AE7B00EF95E3 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F6454E1D97AE7B00EF95E3 /* ChatVC.swift */; };
+		44F645541D97B43D00EF95E3 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F645531D97B43D00EF95E3 /* ChatCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		44F645391D97A7BC00EF95E3 /* ChatViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44F6453C1D97A7BC00EF95E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		44F6453E1D97A7BC00EF95E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		44F6453E1D97A7BC00EF95E3 /* ConversationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsVC.swift; sourceTree = "<group>"; };
 		44F645411D97A7BC00EF95E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44F645431D97A7BC00EF95E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44F645461D97A7BC00EF95E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44F645481D97A7BC00EF95E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44F6454E1D97AE7B00EF95E3 /* ChatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
+		44F645531D97B43D00EF95E3 /* ChatCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +59,39 @@
 			isa = PBXGroup;
 			children = (
 				44F6453C1D97A7BC00EF95E3 /* AppDelegate.swift */,
-				44F6453E1D97A7BC00EF95E3 /* ViewController.swift */,
+				44F645521D97B38F00EF95E3 /* Model */,
+				44F645511D97B38800EF95E3 /* Controller */,
+				44F645501D97B38400EF95E3 /* View */,
 				44F645401D97A7BC00EF95E3 /* Main.storyboard */,
 				44F645431D97A7BC00EF95E3 /* Assets.xcassets */,
 				44F645451D97A7BC00EF95E3 /* LaunchScreen.storyboard */,
 				44F645481D97A7BC00EF95E3 /* Info.plist */,
 			);
 			path = ChatViewController;
+			sourceTree = "<group>";
+		};
+		44F645501D97B38400EF95E3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				44F645531D97B43D00EF95E3 /* ChatCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		44F645511D97B38800EF95E3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				44F6453E1D97A7BC00EF95E3 /* ConversationsVC.swift */,
+				44F6454E1D97AE7B00EF95E3 /* ChatVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		44F645521D97B38F00EF95E3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +126,7 @@
 				TargetAttributes = {
 					44F645381D97A7BC00EF95E3 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 875MRQ5J2T;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -136,7 +167,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44F6453F1D97A7BC00EF95E3 /* ViewController.swift in Sources */,
+				44F6454F1D97AE7B00EF95E3 /* ChatVC.swift in Sources */,
+				44F645541D97B43D00EF95E3 /* ChatCell.swift in Sources */,
+				44F6453F1D97A7BC00EF95E3 /* ConversationsVC.swift in Sources */,
 				44F6453D1D97A7BC00EF95E3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +291,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 875MRQ5J2T;
 				INFOPLIST_FILE = ChatViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.evgeniygolovanov.ChatViewController;
@@ -270,6 +304,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 875MRQ5J2T;
 				INFOPLIST_FILE = ChatViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.evgeniygolovanov.ChatViewController;
