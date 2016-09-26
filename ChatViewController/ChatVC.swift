@@ -52,6 +52,11 @@ class ChatVC: UIViewController, UITextFieldDelegate {
 //        let adjustmentHeight1 = keyboardFrame.height * (show ? 1 : -1)
 //        self.collectionViewChat.contentInset.bottom += adjustmentHeight1
 //        self.collectionViewChat.scrollIndicatorInsets.bottom += adjustmentHeight1
+        
+        //Scrolls to bottom
+        let fr = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.collectionViewChat.contentSize.height)
+        self.collectionViewChat.scrollRectToVisible(fr, animated: false)
+
     }
     
     
