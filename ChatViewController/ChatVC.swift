@@ -47,6 +47,11 @@ class ChatVC: UIViewController, UITextFieldDelegate {
         bottomLayoutConstraint.constant = adjustmentHeight
         self.view.layoutIfNeeded()
 //        self.collectionViewChat.layoutIfNeeded()
+        
+        
+//        let adjustmentHeight1 = keyboardFrame.height * (show ? 1 : -1)
+//        self.collectionViewChat.contentInset.bottom += adjustmentHeight1
+//        self.collectionViewChat.scrollIndicatorInsets.bottom += adjustmentHeight1
     }
     
     
