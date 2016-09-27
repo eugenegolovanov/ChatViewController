@@ -85,7 +85,7 @@ class ChatVC: UIViewController, UITextFieldDelegate {
     }
     
     deinit {
-        
+        NotificationCenter.default.removeObserver(self)
     }
 
 
