@@ -76,6 +76,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.29993428960000001" green="0.76281984059999997" blue="0.1399678439" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Send"/>
+                                        <connections>
+                                            <action selector="onSendAction:" destination="rD8-Sf-fya" eventType="touchUpInside" id="KRj-v1-8K4"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.017416125163435936" green="0.80964845418930054" blue="0.98960644006729126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -93,7 +96,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="chatCell" id="PUy-xl-dBf" customClass="ChatCell" customModule="ChatViewController" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="0.0" width="336" height="100"/>
+                                        <rect key="frame" x="19.5" y="0.0" width="336" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="336" height="100"/>

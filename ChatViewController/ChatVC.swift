@@ -27,6 +27,15 @@ class ChatVC: UIViewController, UITextFieldDelegate {
         
     }
     
+    @IBAction func onSendAction(_ sender: UIButton) {
+//        UIView.animate(withDuration: 1) { 
+//            let contentInsets:UIEdgeInsets = UIEdgeInsetsMake(0, 0, 300, 0);
+//            self.collectionViewChat.contentInset = contentInsets;
+//            self.collectionViewChat.scrollIndicatorInsets = contentInsets;
+//        }
+//        collectionViewChat.setContentOffset(CGPoint(0,8), animated: true)
+
+    }
     //-----------------------------------------------------------------------------------
     // MARK: - keyboard
 
@@ -42,21 +51,19 @@ class ChatVC: UIViewController, UITextFieldDelegate {
     func adjustInsetForKeyboard(show:Bool, notification: NSNotification) {
         let userinfo = notification.userInfo ?? [:]
         let keyboardFrame = (userinfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        
+        
+        //Typing view
         let adjustmentHeight = keyboardFrame.height * (show ? 1 : 0)
-        
         bottomLayoutConstraint.constant = adjustmentHeight
+        self.view.setNeedsLayout()
         self.view.layoutIfNeeded()
-//        self.collectionViewChat.layoutIfNeeded()
         
+        //Collection view scroll
+        let adjustmentHeight1 = keyboardFrame.height * (show ? 1 : -1)
+        let yOffset = collectionViewChat.contentOffset.y + adjustmentHeight1
+        collectionViewChat.setContentOffset(CGPoint(x: 0, y: yOffset), animated: false)
         
-//        let adjustmentHeight1 = keyboardFrame.height * (show ? 1 : -1)
-//        self.collectionViewChat.contentInset.bottom += adjustmentHeight1
-//        self.collectionViewChat.scrollIndicatorInsets.bottom += adjustmentHeight1
-        
-        //Scrolls to bottom
-        let fr = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.collectionViewChat.contentSize.height)
-        self.collectionViewChat.scrollRectToVisible(fr, animated: false)
-
     }
     
     
