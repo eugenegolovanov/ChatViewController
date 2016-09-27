@@ -15,6 +15,7 @@ class ChatVC: UIViewController, UITextFieldDelegate {
     
     let messages = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
     
+    var contentInsets:UIEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
     
     //-----------------------------------------------------------------------------------
     // MARK: - View Lifecycle
@@ -40,6 +41,8 @@ class ChatVC: UIViewController, UITextFieldDelegate {
     // MARK: - keyboard
 
     
+    
+    
     func keyboardWillShow(notification: NSNotification) {
         self.adjustInsetForKeyboard(show: true, notification: notification)
     }
@@ -51,19 +54,25 @@ class ChatVC: UIViewController, UITextFieldDelegate {
     func adjustInsetForKeyboard(show:Bool, notification: NSNotification) {
         let userinfo = notification.userInfo ?? [:]
         let keyboardFrame = (userinfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        let keyboardHeight = keyboardFrame.height * (show ? 1 : 0)
+        
+        
+        //Collection view scroll
+        self.contentInsets = UIEdgeInsetsMake(self.topLayoutGuide.length, 0, keyboardHeight, 0);
+//        self.collectionViewChat.contentInset = contentInsets;
+//        self.collectionViewChat.scrollIndicatorInsets = contentInsets;
+
+        let keyboardDifference = keyboardFrame.height * (show ? 1 : -1)
+        let yOffset = collectionViewChat.contentOffset.y + keyboardDifference
+        collectionViewChat.setContentOffset(CGPoint(x: 0, y: yOffset), animated: false)
+        
         
         
         //Typing view
-        let adjustmentHeight = keyboardFrame.height * (show ? 1 : 0)
-        bottomLayoutConstraint.constant = adjustmentHeight
+        bottomLayoutConstraint.constant = keyboardHeight
         self.view.setNeedsLayout()
         self.view.layoutIfNeeded()
-        
-        //Collection view scroll
-        let adjustmentHeight1 = keyboardFrame.height * (show ? 1 : -1)
-        let yOffset = collectionViewChat.contentOffset.y + adjustmentHeight1
-        collectionViewChat.setContentOffset(CGPoint(x: 0, y: yOffset), animated: false)
-        
+
     }
     
     
@@ -72,7 +81,13 @@ class ChatVC: UIViewController, UITextFieldDelegate {
         return true
     }
 
-
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+//        print("INSETS: \(self.contentInsets)")
+        self.collectionViewChat.contentInset = contentInsets;
+        self.collectionViewChat.scrollIndicatorInsets = contentInsets;
+    }
+    
     
     //-----------------------------------------------------------------------------------
     // MARK: - init deinit
